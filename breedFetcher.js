@@ -1,7 +1,7 @@
 const needle = require('needle');
 
 const fetchBreedDescription = (breedName, callback) => {
-  needle.get(`https://api.thecatapid.com/v1/breeds/search?q=${breedName}`, (error, response, body) => {
+  needle.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`, (error, response, body) => {
     let errOut = error;
     let bodyOut;
 
@@ -19,6 +19,7 @@ const fetchBreedDescription = (breedName, callback) => {
         bodyOut = bodyOut.join('\n');
       }
     }
+    
     // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     callback(errOut, bodyOut);
   });
